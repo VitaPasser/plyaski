@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
+    <html lang="uk" className="scroll-smooth">
       <body
         className={`text-base antialiased`}
       >
