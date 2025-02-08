@@ -14,6 +14,7 @@ interface Props {
 
 export async function generateMetadata(
     { params }: Props,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const pageNumber = Number(((await params).page || '1'));
@@ -29,7 +30,8 @@ const Event = async ({
     params: {
         page: string | undefined
     }
-}) => {
+    }) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const pageNumber = Number(((await params).page || '1'));
 
     const card: EventMiniature = {

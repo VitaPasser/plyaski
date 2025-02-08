@@ -26,10 +26,10 @@ const NavBar = ({ className, classNameNavElements }: {
                 }
             </div>
             <nav className={"hidden md:flex border-[1px] rounded-full divide-x-[1px]" + " " + className_ }>
-                <NavElement className={classNameNavElements} url='/'>Найближчі клуби</NavElement>
-                <NavElement className={classNameNavElements} url='/'>Найближчі заклади</NavElement>
-                <NavElement className={classNameNavElements} url='/'>Суспільство</NavElement>
-                <NavElement className={classNameNavElements} url='/'>О нас</NavElement>
+                <NavElement className={classNameNavElements} url='/info/near-clubs/'>Найближчі клуби</NavElement>
+                <NavElement className={classNameNavElements} url='/info/near-events/'>Найближчі заклади</NavElement>
+                <NavElement className={classNameNavElements} url='/info/'>Суспільство</NavElement>
+                <NavElement className={classNameNavElements} url='/info/about/'>О нас</NavElement>
             </nav>
         </>
   )
