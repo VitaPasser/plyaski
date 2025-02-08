@@ -4,8 +4,9 @@ import NavElement from './NavElement'
 import ButtonOpenNavBar from './ButtonOpenNavBar';
 import { TbMenu4 } from 'react-icons/tb';
 
-const NavBar = ({ className }: {
+const NavBar = ({ className, classNameNavElements }: {
     className?: string
+    classNameNavElements?: string
 }) => {
     const className_ = className ?? '';
     const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +26,10 @@ const NavBar = ({ className }: {
                 }
             </div>
             <nav className={"hidden md:flex border-[1px] rounded-full divide-x-[1px]" + " " + className_ }>
-                <NavElement url='/'>Найближчі клуби</NavElement>
-                <NavElement url='/'>Найближчі заклади</NavElement>
-                <NavElement url='/'>Суспільство</NavElement>
-                <NavElement url='/'>О нас</NavElement>
+                <NavElement className={classNameNavElements} url='/'>Найближчі клуби</NavElement>
+                <NavElement className={classNameNavElements} url='/'>Найближчі заклади</NavElement>
+                <NavElement className={classNameNavElements} url='/'>Суспільство</NavElement>
+                <NavElement className={classNameNavElements} url='/'>О нас</NavElement>
             </nav>
         </>
   )

@@ -7,10 +7,10 @@ const NavElement = ({ url, children, className }: {
     children: ReactNode
 }) => {
   return (
-      <Link className={`group/nav-element-but transition ease-in-out delay-150 capitalize hover:backdrop-contrast-0 hover:bg-white/30 
+      <Link className={`group/nav-element-but transition ease-in-out delay-150 capitalize hover:backdrop-contrast-0
       first:rounded-l-full
       last:rounded-r-full
-      px-4 py-1 ${className ?? ""}`} href={url}>
+      px-[0.9rem] py-1 ${className ?? ""}`} href={url}>
           <p className='transition ease-in-out delay-150 group-hover/nav-element-but:scale-110'>
               {children}
           </p>

@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from 'next/font/google'
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ['cyrillic', 'cyrillic-ext', 'latin'],
+  variable: '--font-inter'
+})
 
 export const metadata: Metadata = {
   title: "Plyaska",
@@ -12,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className="scroll-smooth">
+    <html lang="uk">
       <body
-        className={`text-base antialiased`}
+        className={`text-base ${inter.variable} antialiased`}
       >
         {children}
       </body>
