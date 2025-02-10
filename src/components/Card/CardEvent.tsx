@@ -39,7 +39,7 @@ const CardEvent = ({ id, header, address, tags, description, phone, image, map }
                         y={map.y}
                     />
                 </div>
-                <Link href={`/event/${id}`} className='flex flex-col gap-2 pt-2'>
+                <Link href={`/info/event/${id}`} className='flex flex-col gap-2 pt-2'>
                     <h1 className='text-2xl px-2 text-black'>{header}</h1>
                     <section className='flex flex-col gap-2 px-2'>
                         <p className='text-slate-600'>{address}</p>
