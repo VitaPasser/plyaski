@@ -31,7 +31,7 @@ const CardEvent = ({ id, header, address, tags, description, phone, image, map }
             transition ease-in-out delay-150 border-[#00000000] hover:border-[#000000] border-2 rounded-3xl  rounded-t-[1.64rem] mb-4'>
             <div className='flex flex-col transition ease-in-out delay-150 rounded-3xl pb-2 overflow-hidden '>
                 <div className='flex flex-row rounded-bl-md overflow-hidden aspect-[12/8]'>
-                    <Link href={`/event/${id}`} className='object-cover w-1/2'>
+                    <Link href={`/info/event/${id}`} className='object-cover w-1/2'>
                         <Image className='object-cover min-w-full min-h-full' src={image.src} width='600' height='600' alt='HADRBUSS' />
                     </Link>
                     <Map
