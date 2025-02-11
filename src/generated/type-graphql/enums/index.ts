@@ -2,6 +2,7 @@ export { EventScalarFieldEnum } from "./EventScalarFieldEnum";
 export { ImageScalarFieldEnum } from "./ImageScalarFieldEnum";
 export { MapScalarFieldEnum } from "./MapScalarFieldEnum";
 export { NullsOrder } from "./NullsOrder";
+export { QueryMode } from "./QueryMode";
 export { SortOrder } from "./SortOrder";
 export { TagOnEventScalarFieldEnum } from "./TagOnEventScalarFieldEnum";
 export { TagScalarFieldEnum } from "./TagScalarFieldEnum";

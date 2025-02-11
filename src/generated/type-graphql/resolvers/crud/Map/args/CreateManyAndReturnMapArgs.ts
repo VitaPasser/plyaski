@@ -8,4 +8,9 @@ export class CreateManyAndReturnMapArgs {
     nullable: false
   })
   data!: MapCreateManyInput[];
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  skipDuplicates?: boolean | undefined;
 }

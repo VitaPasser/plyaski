@@ -8,4 +8,9 @@ export class CreateManyImageArgs {
     nullable: false
   })
   data!: ImageCreateManyInput[];
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  skipDuplicates?: boolean | undefined;
 }

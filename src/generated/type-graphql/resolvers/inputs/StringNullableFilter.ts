@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { NestedStringNullableFilter } from "../inputs/NestedStringNullableFilter";
+import { QueryMode } from "../../enums/QueryMode";
 
 @TypeGraphQL.InputType("StringNullableFilter", {})
 export class StringNullableFilter {
@@ -55,6 +56,11 @@ export class StringNullableFilter {
     nullable: true
   })
   endsWith?: string | undefined;
+
+  @TypeGraphQL.Field(_type => QueryMode, {
+    nullable: true
+  })
+  mode?: "default" | "insensitive" | undefined;
 
   @TypeGraphQL.Field(_type => NestedStringNullableFilter, {
     nullable: true

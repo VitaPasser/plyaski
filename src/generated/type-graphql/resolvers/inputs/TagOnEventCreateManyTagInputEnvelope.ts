@@ -10,4 +10,9 @@ export class TagOnEventCreateManyTagInputEnvelope {
     nullable: false
   })
   data!: TagOnEventCreateManyTagInput[];
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  skipDuplicates?: boolean | undefined;
 }
