@@ -1,0 +1,15 @@
+export { AggregateTagOnEventArgs } from "./AggregateTagOnEventArgs";
+export { CreateManyAndReturnTagOnEventArgs } from "./CreateManyAndReturnTagOnEventArgs";
+export { CreateManyTagOnEventArgs } from "./CreateManyTagOnEventArgs";
+export { CreateOneTagOnEventArgs } from "./CreateOneTagOnEventArgs";
+export { DeleteManyTagOnEventArgs } from "./DeleteManyTagOnEventArgs";
+export { DeleteOneTagOnEventArgs } from "./DeleteOneTagOnEventArgs";
+export { FindFirstTagOnEventArgs } from "./FindFirstTagOnEventArgs";
+export { FindFirstTagOnEventOrThrowArgs } from "./FindFirstTagOnEventOrThrowArgs";
+export { FindManyTagOnEventArgs } from "./FindManyTagOnEventArgs";
+export { FindUniqueTagOnEventArgs } from "./FindUniqueTagOnEventArgs";
+export { FindUniqueTagOnEventOrThrowArgs } from "./FindUniqueTagOnEventOrThrowArgs";
+export { GroupByTagOnEventArgs } from "./GroupByTagOnEventArgs";
+export { UpdateManyTagOnEventArgs } from "./UpdateManyTagOnEventArgs";
+export { UpdateOneTagOnEventArgs } from "./UpdateOneTagOnEventArgs";
+export { UpsertOneTagOnEventArgs } from "./UpsertOneTagOnEventArgs";

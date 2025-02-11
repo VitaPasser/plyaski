@@ -1,0 +1,49 @@
+import * as TypeGraphQL from "type-graphql";
+import * as GraphQLScalars from "graphql-scalars";
+import { Prisma } from "@prisma/client";
+import { DecimalJSScalar } from "../../scalars";
+import { ImageCreateNestedManyWithoutEventInput } from "../inputs/ImageCreateNestedManyWithoutEventInput";
+import { MapCreateNestedOneWithoutEventInput } from "../inputs/MapCreateNestedOneWithoutEventInput";
+
+@TypeGraphQL.InputType("EventCreateWithoutTagsInput", {})
+export class EventCreateWithoutTagsInput {
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  id?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  header!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  address!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  description!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  content!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  phone?: string | undefined;
+
+  @TypeGraphQL.Field(_type => ImageCreateNestedManyWithoutEventInput, {
+    nullable: true
+  })
+  image?: ImageCreateNestedManyWithoutEventInput | undefined;
+
+  @TypeGraphQL.Field(_type => MapCreateNestedOneWithoutEventInput, {
+    nullable: false
+  })
+  map!: MapCreateNestedOneWithoutEventInput;
+}

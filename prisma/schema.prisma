@@ -20,3 +20,48 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Event {
+  id          String       @id @default(uuid())
+  header      String
+  address     String
+  tags        TagOnEvent[]
+  description String
+  content     String
+  phone       String?
+  image       Image[]
+  map         Map          @relation(fields: [mapId], references: [id])
+
+  mapId String
+}
+
+model TagOnEvent {
+  event    Event    @relation(fields: [eventId], references: [id])
+  eventId  String
+  tag      Tag      @relation(fields: [tagId], references: [id])
+  tagId    String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  @@id([eventId, tagId])
+}
+
+model Tag {
+  id    String       @id @default(uuid())
+  name  String
+  Event TagOnEvent[]
+}
+
+model Image {
+  id      String  @id @default(uuid())
+  src     String
+  Event   Event?  @relation(fields: [eventId], references: [id])
+  eventId String?
+}
+
+model Map {
+  id    String  @id @default(uuid())
+  x     Float
+  y     Float
+  Event Event[]
+}
