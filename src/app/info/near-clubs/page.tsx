@@ -64,7 +64,7 @@ export default async function NearClubs() {
         {
           listMultiply.map((card, key) => <CardEvent
             key={key}
-            id={key}
+            id={card.id}
             header={card.header}
             address={card.address}
             tags={card.tags}
