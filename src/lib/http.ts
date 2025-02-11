@@ -9,6 +9,7 @@ export async function POST(query: string) {
   const fetch_ = await fetch(url, {
     method: "POST",
     headers: {
+      Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query: query }),
