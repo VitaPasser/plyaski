@@ -53,7 +53,9 @@ export default async function Home() {
   //   }
   // }
   // const listMultiply: EventMiniature[] = Array(30).fill(list);
-  const listMultiply: EventMiniature[] = (await POST(TAKE_EVENTS_MINIATURES)).events;
+  const data = (await POST(TAKE_EVENTS_MINIATURES))
+  console.log(data)
+  const listMultiply: EventMiniature[] = data.events;
   return (
     <div className='relative font-sans group ' id='root'>
       <NavBarMobile />
