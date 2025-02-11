@@ -13,7 +13,8 @@ export async function POST(query: string) {
     },
     body: JSON.stringify({ query: query }),
   });
-  console.log(await fetch_.text());
-  const getData = await fetch_.json();
+  const data = await fetch_.text();
+  console.log(data);
+  const getData = JSON.parse(data);
   return getData.data;
 }
