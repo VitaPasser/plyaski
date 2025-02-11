@@ -185,7 +185,7 @@ const Forum = () => {
                                                 <span className='min-w-max' key={key1}>
                                                     {tag}
                                                 </span>
-                                                <span className='pr-1 ml-[-0.25rem] last:last-of-type:hidden'>,</span>
+                                                <span key={key1 + '.d'} className='pr-1 ml-[-0.25rem] last:last-of-type:hidden'>,</span>
                                             </>)}
                                     </p>
                                 </div>
