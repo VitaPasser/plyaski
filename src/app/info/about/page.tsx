@@ -15,7 +15,7 @@ const About = () => {
         </article>
         <article className='flex flex-col gap-8 items-center'>
           <h2 className='font-bold text-3xl'>Мета</h2>
-          <p className='max-w-[768px]'>Поширити об'єднання людей завдяки цінності танців</p>
+          <p className='max-w-[768px]'>Поширити об&apos;єднання людей завдяки цінності танців</p>
         </article>
         <article className='flex flex-col gap-8 items-center'>
           <h2 className='font-bold text-3xl'>Рекламодавцям</h2>
