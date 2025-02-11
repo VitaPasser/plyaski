@@ -10,9 +10,4 @@ export class EventCreateManyMapInputEnvelope {
     nullable: false
   })
   data!: EventCreateManyMapInput[];
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  skipDuplicates?: boolean | undefined;
 }

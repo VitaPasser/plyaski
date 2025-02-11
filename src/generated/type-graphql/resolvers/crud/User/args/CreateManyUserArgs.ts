@@ -8,9 +8,4 @@ export class CreateManyUserArgs {
     nullable: false
   })
   data!: UserCreateManyInput[];
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  skipDuplicates?: boolean | undefined;
 }

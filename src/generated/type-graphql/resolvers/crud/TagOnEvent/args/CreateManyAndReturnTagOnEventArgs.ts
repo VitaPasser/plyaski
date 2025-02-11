@@ -8,9 +8,4 @@ export class CreateManyAndReturnTagOnEventArgs {
     nullable: false
   })
   data!: TagOnEventCreateManyInput[];
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  skipDuplicates?: boolean | undefined;
 }

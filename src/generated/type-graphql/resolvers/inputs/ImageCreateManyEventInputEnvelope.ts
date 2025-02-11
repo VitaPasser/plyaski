@@ -10,9 +10,4 @@ export class ImageCreateManyEventInputEnvelope {
     nullable: false
   })
   data!: ImageCreateManyEventInput[];
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  skipDuplicates?: boolean | undefined;
 }
