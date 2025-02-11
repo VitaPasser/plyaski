@@ -25,13 +25,13 @@ export async function generateMetadata(
     };
 }
 
+type Params = Promise<{
+    page: string
+}>
+
 const Event = async ({
     params
-}: {
-    params: {
-        page: string | undefined
-    }
-}) => {
+}: { params: Params }) => {
     const pageNumber = ((await params).page || '1');
     const GET_EVENT_INFO = `
     query {
@@ -78,7 +78,6 @@ const Event = async ({
     //         y: 30.751784
     //     }
     // }
-    console.log((await POST(GET_EVENT_INFO)))
     const card: EventMiniature = (await POST(GET_EVENT_INFO)).event;
     if (card === null) return <div className='w-full flex flex-col justify-center items-center'><p>Not founded</p></div>
 
