@@ -74,7 +74,7 @@ const Forum = () => {
         tag: ["Зорба", "Лерікос", "brake dance"]
     }
     const dance_topics: Topic[] = new Array(32).fill(dance_topic)
-    const categories: string[] = ["Hard bass", "Greek dance", "Foxtrot"] 
+    const categories: string[] = ["Hard bass", "Greek dance", "Foxtrot"]
     const comment: Comment = {
         id: "1",
         avatar: '3.jpg',
@@ -95,29 +95,31 @@ const Forum = () => {
                 <section className='flex flex-col gap-2 border-r-[1px] w-[calc(100%/3)] pr-8'>
                     <h1 className='text-xl font-bold'>Статті о танцях</h1>
                     {
-                        dance_articles.map((article, key) => <article key={key}>
-                            <p className='text-sm'>{article.date}</p>
-                            <Link href={`/info/${article.id}`}>
-                                <p>{article.content}</p>
-                            </Link>
-                        </article>)
+                        dance_articles.map((article, key) =>
+                            <article key={key}>
+                                <p className='text-sm'>{article.date}</p>
+                                <Link href={`/info/${article.id}`}>
+                                    <p>{article.content}</p>
+                                </Link>
+                            </article>)
                     }
                     <Link href='/'>Всі статті о танцях</Link>
                 </section>
                 <section className='flex flex-col gap-2 border-r-[1px] w-[calc(100%/3)] px-8'>
                     <h1 className='text-xl font-bold'>Блоги</h1>
                     {
-                        dance_blogs.map((article, key) => <article className='flex flex-row gap-1' key={key}>
-                            <Image className='aspect-square rounded-full object-cover w-[40px] h-[40px]' src={`/${article.avatar}`} width='160' height='160' alt='avatar' />
-                            <div className='flex flex-col gap-1'>
-                                <Link href={`/info/user/${article.author_id}`}>
-                                    <p className='text-sm'>{article.name}</p>
-                                </Link>
-                                <Link href={`/info/${article.id}`}>
-                                    <p>{article.content}</p>
-                                </Link>
-                            </div>
-                        </article>)
+                        dance_blogs.map((article, key) =>
+                            <article className='flex flex-row gap-1' key={key}>
+                                <Image className='aspect-square rounded-full object-cover w-[40px] h-[40px]' src={`/${article.avatar}`} width='160' height='160' alt='avatar' />
+                                <div className='flex flex-col gap-1'>
+                                    <Link href={`/info/user/${article.author_id}`}>
+                                        <p className='text-sm'>{article.name}</p>
+                                    </Link>
+                                    <Link href={`/info/${article.id}`}>
+                                        <p>{article.content}</p>
+                                    </Link>
+                                </div>
+                            </article>)
                     }
                     <div className='pl-[44px] flex flex-row justify-between'>
                         <Link href='/'>Всі блоги</Link>
@@ -127,10 +129,11 @@ const Forum = () => {
                 <section className='flex flex-col gap-2 w-[calc(100%/3)] pl-8'>
                     <h1 className='text-xl font-bold'>Нові обговорення</h1>
                     {
-                        new_discussions.map((article, key) => <article key={key}>
-                            <p className='text-sm'>{article.date}</p>
-                            <p>{article.content}</p>
-                        </article>)
+                        new_discussions.map((article, key) =>
+                            <article key={key}>
+                                <p className='text-sm'>{article.date}</p>
+                                <p>{article.content}</p>
+                            </article>)
                     }
                     <Link href='/'>Всі нові обговорення</Link>
                 </section>
@@ -149,10 +152,10 @@ const Forum = () => {
                 <section className='flex flex-col gap-4 md:w-1/2 items-center md:items-start  w-full'>
                     <div>
                         <input className="pl-4 py-1 border-[1px] border-black" list="category"
-                        placeholder="Всі розділи форуму" />
+                            placeholder="Всі розділи форуму" />
 
                         <datalist id="category">
-                            {categories.map((category, key)=> <option key={key} value={category}></option>)}
+                            {categories.map((category, key) => <option key={key} value={category}></option>)}
                         </datalist>
                     </div>
                     {
@@ -173,20 +176,20 @@ const Forum = () => {
                                     <Link href={`/info/${topic.id}`}>
                                         <p>{topic.content}</p>
                                     </Link>
-                                    <p className='flex flex-row gap-1 text-sm'>
+                                    <p className='flex flex-row gap-2 text-sm'>
                                         <span className='min-w-max italic'>
                                             {topic.category}
                                         </span>
                                         <span>
-                                        ·
+                                            ·
                                         </span>
                                         {topic.tag.map((tag, key1) =>
-                                            <>
-                                                <span className='min-w-max' key={key1}>
+                                            <span className='group/comma' key={key1}>
+                                                <span className='min-w-max'>
                                                     {tag}
                                                 </span>
-                                                <span key={key1 + '.d'} className='pr-1 ml-[-0.25rem] last:last-of-type:hidden'>,</span>
-                                            </>)}
+                                                <span className='group-last/comma:hidden'>,</span>
+                                            </span>)}
                                     </p>
                                 </div>
                             </article>
