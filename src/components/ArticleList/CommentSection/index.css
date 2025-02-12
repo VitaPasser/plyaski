@@ -28,11 +28,11 @@
 }
 
 .replyBtn {
+  margin-left: 0px !important;
   @apply transition ease-in-out delay-150 capitalize hover:backdrop-contrast-50  hover:bg-white/70 
     last:rounded-r-full
     first:rounded-full
-    border-[1px] border-black
-    px-4 py-1 mt-4 h-min  pl-[-1rem] flex flex-row content-center items-center gap-2
+    border-[1px] border-black px-4 py-1 mt-4 h-min pl-[-1rem] flex flex-row content-center items-center gap-2
 }
 .replyBtn:hover {
   @apply scale-110
