@@ -86,10 +86,10 @@
 }
 
 .replyIcon {
-  width: 16px;
-  height: 13px;
+  width: 0px;
+  height: 0px;
   filter: invert(67%) sepia(0%) saturate(0%) hue-rotate(110deg) brightness(85%) contrast(84%);
-  margin-right: 5px;
+  margin-right: 0px;
   position: absolute;
 }
 
