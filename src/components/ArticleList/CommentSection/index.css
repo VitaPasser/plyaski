@@ -207,22 +207,27 @@
   font-size: 16px;
   cursor: pointer;
   padding: 5px 20px; */
-  @apply transition ease-in-out delay-150 capitalize hover:backdrop-contrast-50  hover:bg-white/70 
+  @apply transition ease-in-out delay-150 capitalize hover:enabled:backdrop-contrast-50  hover:enabled:bg-white/70 
     last:rounded-r-full
     first:rounded-full
     border-[1px] border-black
-    px-4 py-1 flex flex-row content-center items-center gap-2
+    px-4 py-1 h-min flex flex-row content-center items-center gap-2
 }
 .form .postBtn:hover {
   /* border: 2px solid rgb(0, 184, 240);
   background-color: rgb(0, 184, 240); */
   @apply scale-110
 }
+.form .postBtn:disabled:hover {
+  /* border: 2px solid rgb(0, 184, 240);
+  background-color: rgb(0, 184, 240); */
+  @apply scale-100
+}
 .form .cancelBtn {
   @apply transition ease-in-out delay-150 capitalize hover:backdrop-contrast-50  hover:bg-white/70 
       rounded-l-full
       border-[1px] border-black
-      px-4 py-1 flex flex-row content-center items-center gap-2
+      px-4 py-1 h-min flex flex-row content-center items-center gap-2
 }
 .form .cancelBtn:hover {
   @apply scale-110
