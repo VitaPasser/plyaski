@@ -5,15 +5,13 @@ export async function POST(query: string) {
   const headersList = await headers();
   const url = `${headersList.get("x-forwarded-proto")}://${headersList.get(
     "host"
-  )}/api/graphql?query=${query}`;
+  )}/api/graphql/`;
   const fetch_ = await fetch(url, {
-    method: "GET",
+    method: "POST",
     headers: {
-      // "Content-Type": "application/json",
-      "Apollo-Require-Preflight": "thing"
-      // "x-apollo-operation-name": "Thing"
+      "Content-Type": "application/json",
     },
-    // body: JSON.stringify({ query: query }),
+    body: JSON.stringify({ query: query }),
   });
   const data = await fetch_.text();
   console.log(data);
