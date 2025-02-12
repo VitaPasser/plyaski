@@ -32,7 +32,7 @@
     last:rounded-r-full
     first:rounded-full
     border-[1px] border-black
-    px-4 py-1 mt-4 pl-[-1rem] flex flex-row content-center items-center gap-2
+    px-4 py-1 mt-4 h-min  pl-[-1rem] flex flex-row content-center items-center gap-2
 }
 .replyBtn:hover {
   @apply scale-110
@@ -323,7 +323,6 @@
 }
 .replySection {
   border-left: 1px solid rgb(235, 235, 235);
-  margin-left: 25px;
   padding: 0px 0px 0px 15px;
 }
 .comment-title {
