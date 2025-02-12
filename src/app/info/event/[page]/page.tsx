@@ -24,13 +24,13 @@ export async function generateMetadata(
     };
 }
 
+type Params = Promise<{
+    page: string
+}>
+
 const Event = async ({
     params
-}: {
-    params: {
-        page: string | undefined
-    }
-    }) => {
+}: { params: Params }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const pageNumber = Number(((await params).page || '1'));
 
