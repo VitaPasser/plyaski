@@ -1,13 +1,9 @@
-import Button from '@/components/Button/Button';
 import CardEvent, { EventMiniature } from '@/components/Card/CardEvent';
 import Footer from '@/components/Footer/Footer';
 import Frame from '@/components/Frame/Frame';
 import Header from '@/components/Header/Header';
 import NavBarMobile from '@/components/Navbar/NavBarMobile';
 import Welcome from '@/components/Welcome/Welcome';
-import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
-import { FiMail } from "react-icons/fi";
 
 
 export default function Home() {

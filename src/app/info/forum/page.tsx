@@ -181,12 +181,12 @@ const Forum = () => {
                                         ·
                                         </span>
                                         {topic.tag.map((tag, key1) =>
-                                            <>
-                                                <span className='min-w-max' key={key1}>
+                                            <span className='group/comma' key={key1}>
+                                                <span className='min-w-max'>
                                                     {tag}
                                                 </span>
-                                                <span className='pr-1 ml-[-0.25rem] last:last-of-type:hidden'>,</span>
-                                            </>)}
+                                                <span className='pr-1 group-last/comma:hidden'>,</span>
+                                            </span>)}
                                     </p>
                                 </div>
                             </article>
