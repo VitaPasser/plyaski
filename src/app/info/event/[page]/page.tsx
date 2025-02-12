@@ -32,7 +32,7 @@ const Event = async ({
     params
 }: { params: Params }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const pageNumber = Number(((await params).page || '1'));
+    const pageNumber = ((await params).page || '1');
 
     const card: EventMiniature = {
         id: 1,
