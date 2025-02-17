@@ -1,7 +1,7 @@
 import React from 'react'
-import Image from 'next/image';
 import Link from '@/components/Link/Link';
 import { Topic, Comment, Event } from '@/app/info/forum/page';
+import Avatar from '../Avatar/Avatar';
 
 const ArticleList = async ({
     tagType, dance_topics, comments, events, categories
@@ -30,9 +30,10 @@ const ArticleList = async ({
                     {
                         dance_topics.map((topic, key) =>
                             <article className='flex flex-row gap-2  overflow-hidden ' key={key}>
-                                <Link href={`/info/user/${topic.author_id}`}>
-                                    <Image className='aspect-square rounded-full object-cover w-[40px] h-[40px]' src={`/${topic.avatar}`} width='160' height='160' alt='avatar' />
-                                </Link>
+                                <Avatar
+                                    id={topic.author_id}
+                                    avatar={topic.avatar}
+                                />
                                 <div className='flex flex-col gap-1 '>
                                     <p className='flex gap-1 items-center'>
                                         <span>
@@ -76,9 +77,12 @@ const ArticleList = async ({
                     <h1 className='text-xl font-bold'>Коментарі</h1>
                     {comments.map((comment, key) =>
                         <article key={key}>
-                            <Image className='mr-2 rounded-full  float-left aspect-square object-cover w-[40px] h-[40px]' src={`/${comment.avatar}`} width='160' height='160' alt='avatar' />
+                            <Avatar
+                                avatar={comment.avatar}
+                                classNameImg='mr-2 float-left '
+                            />
                             <p>{comment.content}</p>
-                            <Link href={`/info/forum/article/${comment.id}#${comment.id}`}>
+                            <Link href={`/info/forum/article/${comment.id_article}#${comment.id_comment}`}>
                                 <p className='text-sm'>{comment.date}</p>
                             </Link>
                         </article>)}
@@ -87,9 +91,11 @@ const ArticleList = async ({
                     <h1 className='text-xl font-bold'>Не пропустіть</h1>
                     {events.map((event, key) =>
                         <article className='flex flex-row' key={key}>
-                            <Link className='mr-2 aspect-square w-[40px] h-[40px]' href={`/info/event/${event.id}`}>
-                                <Image className='rounded-full aspect-square object-cover w-[40px] h-[40px]' src={`/${event.image}`} width='160' height='160' alt='avatar' />
-                            </Link>
+                            <Avatar
+                                avatar={event.image}
+                                link={`/info/event/${event.id}`}
+                                className='mr-2 aspect-square w-[40px] h-[40px]'
+                            />
                             <div className='flex flex-col'>
                                 <p className='text-sm'>{event.date}</p>
                                 <Link href={`/info/event/${event.id}`}>

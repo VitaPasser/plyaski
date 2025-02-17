@@ -1,7 +1,7 @@
 import React from 'react'
-import Image from 'next/image';
 import Link from '@/components/Link/Link';
 import ArticleList from '@/components/ArticleList/ArticleList';
+import Avatar from '@/components/Avatar/Avatar';
 
 export interface Topic {
     author_id: string
@@ -15,7 +15,8 @@ export interface Topic {
 }
 
 export interface Comment {
-    id: string
+    id_article: string
+    id_comment: string
     avatar: string
     content: string
     date: string
@@ -77,7 +78,8 @@ const Forum = () => {
     const dance_topics: Topic[] = new Array(32).fill(dance_topic)
     const categories: string[] = ["Hard bass", "Greek dance", "Foxtrot"]
     const comment: Comment = {
-        id: "1",
+        id_article: "1",
+        id_comment: "253",
         avatar: '3.jpg',
         date: '7 хвилин тому',
         content: 'Я тобі говорю, ні якого Щетинського немає, ти його видумав. Це брехня. Псіоп'
@@ -109,7 +111,11 @@ const Forum = () => {
                     <h1 className='text-xl font-bold'>Блоги</h1>
                     {
                         dance_blogs.map((article, key) => <article className='flex flex-row gap-1' key={key}>
-                            <Image className='aspect-square rounded-full object-cover w-[40px] h-[40px]' src={`/${article.avatar}`} width='160' height='160' alt='avatar' />
+                            <Avatar
+                                className='aspect-square rounded-full object-cover w-[40px] h-[40px]'
+                                id={article.author_id}
+                                avatar={article.avatar}
+                            />
                             <div className='flex flex-col gap-1'>
                                 <Link href={`/info/forum/all-articles/user/${article.author_id}`}>
                                     <p className='text-sm'>{article.name}</p>
@@ -130,7 +136,9 @@ const Forum = () => {
                     {
                         new_discussions.map((article, key) => <article key={key}>
                             <p className='text-sm'>{article.date}</p>
-                            <p>{article.content}</p>
+                            <Link href={`/info/forum/article/${article.id}`}>
+                                <p>{article.content}</p>
+                            </Link>
                         </article>)
                     }
                     <Link href='/info/forum/all-articles/'>Всі нові обговорення</Link>

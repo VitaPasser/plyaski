@@ -122,7 +122,7 @@ const Article = () => {
             {ReactHtmlParser(article.content)}
           </div>
         </div>
-        <CommentSection articleId={article.id} />
+        <CommentSection />
       </div>
     </div>
   )

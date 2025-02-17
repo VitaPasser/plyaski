@@ -2,7 +2,6 @@ import CardEvent, { EventMiniature } from '@/components/Card/CardEvent';
 import Footer from '@/components/Footer/Footer';
 import Frame from '@/components/Frame/Frame';
 import Header from '@/components/Header/Header';
-import NavBarMobile from '@/components/Navbar/NavBarMobile';
 import Welcome from '@/components/Welcome/Welcome';
 
 
@@ -29,8 +28,7 @@ export default function Home() {
   }
   const listMultiply: EventMiniature[] = Array(30).fill(list);
   return (
-    <div className='relative font-sans group ' id='root'>
-      <NavBarMobile />
+    <>
       <Welcome className='text-white'>
         <Header classNameNavElements='hover:bg-white/30'/>
         <Frame className='flex-col py-20 sm:py-44 md:py-72'>
@@ -58,6 +56,6 @@ export default function Home() {
         </main>
         <Footer />
       </Frame>
-    </div>
+    </>
   );
 }

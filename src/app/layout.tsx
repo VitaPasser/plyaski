@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 import "./globals.css";
+import NavBarMobile from "@/components/Navbar/NavBarMobile";
 
 const inter = Inter({
   subsets: ['cyrillic', 'cyrillic-ext', 'latin'],
@@ -22,7 +23,10 @@ export default function RootLayout({
       <body
         className={`text-base ${inter.variable} antialiased`}
       >
-        {children}
+        <div className='relative font-sans group ' id='root'>
+          <NavBarMobile />
+          {children}
+        </div>
       </body>
     </html>
   );
