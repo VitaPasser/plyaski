@@ -11,7 +11,10 @@ const Footer = () => {
                 <p>
                     &copy; 2025 VitaPasser A$$-221 ONPU.
                 </p>
-                <Link className='w-fit' href="/info/police-confidence/">Політика конфіденційності</Link>
+                <section className='flex flex-col gap-1'>
+                    <Link className='w-fit' href="/info/police-confidence">Умови обслуговування</Link>
+                    <Link className='w-fit' href="/info/terms-of-service">Політика конфіденційності</Link>
+                </section>
                 <div>
                     <label>
                         <p className='flex flex-row content-center items-center gap-2'><FiMail /> Підписатись на нові оголошення та новини</p>
