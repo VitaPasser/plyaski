@@ -33,7 +33,7 @@ export default function Home() {
         <Header classNameNavElements='hover:bg-white/30'/>
         <Frame className='flex-col py-20 sm:py-44 md:py-72'>
           <h1 className='text-7xl font-bold'>Розділяй цінність танців з іншими</h1>
-          <p className='pt-8 text-4xl'>Plyaska - це сервіс агрегатор танцювальних суспільств, це можливість розділяти цінність танців з іншими у найближчому до вас місці, за пару кликів і 5 хвилин.</p>
+          <p className='pt-8 text-4xl'>Plyaska - це сервіс агрегатор танцювальних суспільств, це можливість розділяти цінність танців з іншими у найближчому до вас місці, за пару кликів і одну хвилину.</p>
         </Frame>
       </Welcome>
       <Frame className='pt-2 flex-col gap-12'>
