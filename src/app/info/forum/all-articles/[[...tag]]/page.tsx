@@ -30,7 +30,8 @@ const AllArticles = async ({
     const dance_topics: Topic[] = new Array(32).fill(dance_topic)
     const categories: string[] = ["Hard bass", "Greek dance", "Foxtrot"]
     const comment: Comment = {
-        id: "1",
+        id_article: "1",
+        id_comment: "253",
         avatar: '3.jpg',
         date: '7 хвилин тому',
         content: 'Я тобі говорю, ні якого Щетинського немає, ти його видумав. Це брехня. Псіоп'
