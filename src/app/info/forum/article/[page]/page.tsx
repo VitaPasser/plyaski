@@ -27,7 +27,7 @@ const Article = () => {
     author: {
       id: "1",
       name: "Sirgay Simonov",
-      avatar: "1.jpg"
+      avatar: "5.jpg"
     },
     content: `<p>
           Земельний кодекс України регулює суспільні відносини щодо володіння, користування і розпорядження землею.

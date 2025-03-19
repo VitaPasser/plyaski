@@ -32,7 +32,7 @@ const CommentSection = () => {
       author: {
         name: "VitaPasser",
         avatar: {
-          src: "2.jpg"
+          src: "3.jpg"
         }
       },
       content: "Я міркую, що в цьому є сенс 🤔",
