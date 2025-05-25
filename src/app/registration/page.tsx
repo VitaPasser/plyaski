@@ -1,4 +1,4 @@
-import { LoginForm } from "@/components/auth/login/login-form"
+import { RegistrationForm } from "@/components/auth/registration/registration-form"
 import Link from "next/link"
 
 export default function LoginPage() {
@@ -8,7 +8,7 @@ export default function LoginPage() {
         <Link href="/" className="flex items-center gap-2 self-center font-medium">
           Plyaska
         </Link>
-        <LoginForm />
+        <RegistrationForm />
       </div>
     </div>
   )

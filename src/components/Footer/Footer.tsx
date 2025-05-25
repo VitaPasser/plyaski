@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className='pb-16 flex flex-col gap-y-4 sm:flex-row justify-between w-full'>
             <div className='flex flex-col gap-4'>
                 <p>
-                    &copy; 2025 VitaPasser A$$-221 ONPU.
+                    &copy; 2025 VitaPasser AC-221 ONPU.
                 </p>
                 <section className='flex flex-col gap-1'>
                     <Link className='w-fit' href="/info/police-confidence">Умови обслуговування</Link>

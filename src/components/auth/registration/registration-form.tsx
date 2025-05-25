@@ -10,21 +10,36 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import Link from "./Link/Link"
+import Link from "../../Link/Link"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
-export function LoginForm({
+export function RegistrationForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
   const router = useRouter();
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+
+  const validatePassword = () => {
+    if (password !== confirmPassword) {
+      setPasswordError("Пароль не однаковий");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Ласкаво просимо</CardTitle>
           <CardDescription>
-            Увійдіть за допомогою свого облікового запису Apple або Google
+            Зареєструйтесь за допомогою свого облікового запису Apple або Google
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -73,23 +88,33 @@ export function LoginForm({
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="password">Пароль</Label>
-                    <Link
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Забули свій пароль?
-                    </Link>
                   </div>
-                  <Input id="password" type="password" required />
+                  <Input id="password" type="password" onChange={(event) => {
+                    setPassword(event.target.value)
+                    validatePassword()
+                  }} required />
+                </div>
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="confirm_password">Повторить пароль</Label>
+                  </div>
+                  <Input id="confirm_password" type="password" required
+                    onChange={(event) => {
+                    setConfirmPassword(event.target.value)
+                    validatePassword()
+                    }}
+                    onBlur={() => validatePassword()}
+                  />
+                  {passwordError && <p className="text-red-600">{passwordError}</p>}
                 </div>
                 <Button type="submit" className="w-full">
-                  Логін
+                  Реєстрація
                 </Button>
               </form>
               <div className="text-center text-sm">
-                Не маєте облікового запису?{" "}
-                <Link href="#" className="underline underline-offset-4">
-                  Зареєструватися
+                Маєте обліковий запис?{" "}
+                <Link href="/login" className="underline underline-offset-4">
+                  Увійти
                 </Link>
               </div>
             </div>
