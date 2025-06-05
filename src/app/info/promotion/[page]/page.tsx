@@ -84,10 +84,10 @@ export default function PromotionPage() {
 
             const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
             const url = server_url + `promotions`
-            console.log(server_url)
-            console.log(url)
+            // console.log(server_url)
+            // console.log(url)
             const data: fetchPromotion[] = await (await fetch(url)).json()
-            console.log(data)
+            // console.log(data)
             if (!Array.isArray(data)) { return; }
             const list_data: Promotion[] = data.map((list_element: fetchPromotion) => {
                 const list_end: Promotion = {
@@ -98,7 +98,7 @@ export default function PromotionPage() {
                 };
                 return list_end
             })
-            console.log(list_data)
+            // console.log(list_data)
             setPromotionServices(list_data)
 
         }
@@ -108,12 +108,12 @@ export default function PromotionPage() {
 
             const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
             const url = server_url + `events/${pageNumber}`
-            console.log(server_url)
-            console.log(url)
+            // console.log(server_url)
+            // console.log(url)
 
             const data: fetchList = await (await fetch(url)).json()
 
-            console.log(data)
+            // console.log(data)
             if (!data) { return; }
 
             setAuthorId(data.author.id);
@@ -129,7 +129,7 @@ export default function PromotionPage() {
                     src: `${server_url}${data.images[0].src}`
                 }
             };
-            console.log(list_data)
+            // console.log(list_data)
             setList(list_data)
 
         }
@@ -192,7 +192,7 @@ export default function PromotionPage() {
             eventActionId: list.id,
             promotionId: selectPromotion.id,
         }
-        console.log(payload)
+        // console.log(payload)
         const res = await fetch(url, {
             method: 'POST',
             headers: {

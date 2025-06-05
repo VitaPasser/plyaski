@@ -24,7 +24,7 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"div">) {
   const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
   const url = server_url + 'auth/login'
-  console.log(url)
+  // console.log(url)
   const router = useRouter();
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>

@@ -124,9 +124,9 @@ export default function CreateEventPage() {
             const formData = new FormData()
             formData.append('file', files[i])
             const url = SERVER_URL + 'images/upload'
-            console.log(url)
-            console.log(formData)
-            console.log('Bearer ' + (localStorage.getItem('token') ?? ''))
+            // console.log(url)
+            // console.log(formData)
+            // console.log('Bearer ' + (localStorage.getItem('token') ?? ''))
             const res = await fetch(url, {
                 method: 'POST',
                 body: formData,
@@ -134,7 +134,7 @@ export default function CreateEventPage() {
                     'authorization': 'Bearer ' + (localStorage.getItem('token') ?? '')
                 }
             })
-            console.log(res)
+            // console.log(res)
             if (res.ok) {
                 const data = await res.json()
                 uploadedImages.push({ id: data.id, src: data.src })
@@ -228,8 +228,8 @@ export default function CreateEventPage() {
             categoryId,
             imagesIds
         }
-        console.log(JSON.stringify(eventData))
-        console.log(localStorage.getItem('token') ?? '')
+        // console.log(JSON.stringify(eventData))
+        // console.log(localStorage.getItem('token') ?? '')
         const res = await fetch(SERVER_URL + 'events/form', {
             method: 'POST',
             body: JSON.stringify(eventData),

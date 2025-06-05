@@ -19,20 +19,20 @@ export default function Home() {
           timeout: 1000,
           maximumAge: 0,
         })
-        console.log(navigator.geolocation)
-        console.log(coord)
+        // console.log(navigator.geolocation)
+        // console.log(coord)
       }
 
       const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
       const url = server_url + `events/near/заклад?latitude=${coord?.latitude}&longitude=${coord?.longitude}&page=1&pageSize=21&limit=21`
-      console.log(server_url)
-      console.log(url)
+      // console.log(server_url)
+      // console.log(url)
       // while (coord === undefined) {}
       if (coord === undefined) {
         return;
       }
       const data: fetchList[] = await (await fetch(url)).json()
-      console.log(data)
+      // console.log(data)
       if (!Array.isArray(data)) { return; }
       const list_data: EventMiniature[] = data.map((list_element: fetchList) => {
         const list_end: EventMiniature = {
@@ -49,7 +49,7 @@ export default function Home() {
         };
         return list_end
       })
-      console.log(list_data)
+      // console.log(list_data)
       setList(list_data)
 
     }

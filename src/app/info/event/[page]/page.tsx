@@ -29,10 +29,10 @@ export async function generateMetadata(
 //     const pageNumber = context.params?.page
 //     const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
 //     const url = server_url + `events/${pageNumber}`
-//     console.log(server_url)
-//     console.log(url)
+//     // console.log(server_url)
+//     // console.log(url)
 //     const data: fetchList = await (await fetch(url)).json()
-//     console.log(data)
+//     // console.log(data)
 //     const list_data: EventMiniature = {
 //         id: data.id,
 //         header: data.name,
@@ -45,7 +45,7 @@ export async function generateMetadata(
 //             src: `${server_url}${data.images[0].src}`
 //         }
 //     };
-//     console.log(list_data)
+//     // console.log(list_data)
 //     return { card: list_data }
 // })
 
@@ -79,10 +79,10 @@ const Event = async ({
 
     const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
     const url = server_url + `events/${pageNumber}`
-    console.log(server_url)
-    console.log(url)
+    // console.log(server_url)
+    // console.log(url)
     const data: fetchList = await (await fetch(url)).json()
-    console.log(data)
+    // console.log(data)
     const card: Event = {
         id: data.id,
         header: data.name,
@@ -94,7 +94,7 @@ const Event = async ({
         images: data.images.map((image) => { return { src: server_url + image.src } }),
         authorId: data.author.id
     };
-    console.log(card)
+    // console.log(card)
 
     // const card: EventMiniature = {
     //     id: '1',
