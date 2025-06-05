@@ -1,4 +1,5 @@
 'use client'
+import Button from '@/components/Button/Button';
 import CardEvent, { EventMiniature } from '@/components/Card/CardEvent';
 import Footer from '@/components/Footer/Footer';
 import Frame from '@/components/Frame/Frame';
@@ -129,7 +130,8 @@ export default function Home() {
         </Frame>
       </Welcome>
       <Frame className='pt-2 flex-col gap-12'>
-        <main>
+        <main className='flex flex-col gap-2'>
+          <Button className='place-self-end w-fit rounded-r-full'>Додати свою подію</Button>
           <section className='flex flex-row flex-wrap gap-2'>
             <Suspense fallback={<div>Loading...</div>}>
               {

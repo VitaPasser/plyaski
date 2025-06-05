@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 
 const About = () => {
@@ -16,10 +15,6 @@ const About = () => {
         <article className='flex flex-col gap-8 items-center'>
           <h2 className='font-bold text-3xl'>Мета</h2>
           <p className='max-w-[768px]'>Поширити об&apos;єднання людей завдяки цінності танців</p>
-        </article>
-        <article className='flex flex-col gap-8 items-center'>
-          <h2 className='font-bold text-3xl'>Рекламодавцям</h2>
-          <p className='max-w-[768px]'>Звонить на даний номер: <Link href='tel:+38098xxxxxxx'>+38098xxxxxxx</Link>, там все обговоримо.</p>
         </article>
       </div>
     </div>
