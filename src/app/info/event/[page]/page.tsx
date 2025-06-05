@@ -5,6 +5,7 @@ import Map from '@/components/Card/Map/Map';
 import Link from 'next/link';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { fetchList } from '@/app/page';
+import ButtonLink from '@/components/Button/ButtonLink';
 
 interface Props {
     params: Promise<{
@@ -65,16 +66,16 @@ export interface Event {
     map: {
         x: number
         y: number
-    }
+    },
+    authorId: string
 
 }
 
 const Event = async ({
     params
 }: { params: Params }) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const pageNumber = ((await params).page || '1');
 
+    const pageNumber = ((await params).page || '1');
 
     const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
     const url = server_url + `events/${pageNumber}`
@@ -90,9 +91,11 @@ const Event = async ({
         phone: data.phoneNumber,
         map: { y: data.coords.coordinates[1], x: data.coords.coordinates[0] },
         tags: [data.category.name].concat(data.tags.map((tag) => tag.name)),
-        images: data.images.map((image) => { return { src: server_url + image.src } })
+        images: data.images.map((image) => { return { src: server_url + image.src } }),
+        authorId: data.author.id
     };
     console.log(card)
+
     // const card: EventMiniature = {
     //     id: '1',
     //     header: 'Потанцювати з пацанами',
@@ -119,6 +122,9 @@ const Event = async ({
         <div className='w-full'>
             <div className='flex flex-col xl:rounded-3xl pb-6 overflow-hidden w-full gap-6 xl:gap-0'>
                 <h1 className='sm:hidden text-2xl text-black'>{card.header}</h1>
+                <ButtonLink href={`/info/promotion/${card.id}`} className='sm:hidden w-fit rounded-l-full rounded-r-full'>
+                    Просунути
+                </ButtonLink>
                 <section className='sm:hidden flex max-sm:flex-wrap flex-row gap-4 '>
                     <p className='text-slate-600'>{card.address}</p>
                     {phoneComponent}
@@ -144,7 +150,12 @@ const Event = async ({
                     />
                 </div>
                 <div className='flex flex-col sm:gap-2 pt-2 gap-4' >
-                    <h1 className='max-sm:hidden text-2xl text-black'>{card.header}</h1>
+                    <div className='flex flex-row flex-wrap gap-4'>
+                        <h1 className='max-sm:hidden text-2xl text-black'>{card.header}</h1>
+                        <ButtonLink href={`/info/promotion/${card.id}`} className='max-sm:hidden w-fit rounded-l-full'>
+                            Просунути
+                        </ButtonLink>
+                    </div>
                     <section className='hidden sm:flex flex-wrap sm:flex-nowrap flex-row gap-4'>
                         <p className='text-slate-600'>{card.address}</p>
                         {phoneComponent}

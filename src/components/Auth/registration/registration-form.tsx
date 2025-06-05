@@ -12,25 +12,44 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "../../Link/Link"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
-export function LoginForm({
+export function RegistrationForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+  const server_url = process.env.NEXT_PUBLIC_SERVER_URL;
+  const url = server_url + 'users'
+  console.log(url)
   const router = useRouter();
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+
+  const validatePassword = () => {
+    if (password !== confirmPassword) {
+      setPasswordError("Пароль не однаковий");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Ласкаво просимо</CardTitle>
           <CardDescription>
-            Увійдіть за допомогою свого облікового запису Apple або Google
+            Зареєструйтесь
+            {/* за допомогою свого облікового запису Apple або Google */}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div>
             <div className="grid gap-6">
-              <div className="flex flex-col gap-4">
+              {/* <div className="flex flex-col gap-4">
                 <Button onClick={() => router.push('/')} variant="outline" className="w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
@@ -54,11 +73,27 @@ export function LoginForm({
                 <span className="relative z-10 bg-background px-2 text-muted-foreground">
                   Або продовжуйте з
                 </span>
-              </div>
+              </div> */}
               <form
-                onSubmit={(event) => {
+                onSubmit={async (event) => {
                   event.preventDefault();
-                  router.push('/')
+                  const form = event.target as HTMLFormElement;
+                  const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+                  const password = (form.elements.namedItem('password') as HTMLInputElement).value;
+                  const phoneNumber = (form.elements.namedItem('phoneNumber') as HTMLInputElement).value;
+                  const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+                  const data = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password, phoneNumber, name }),
+                  });
+                  if (data.ok) {
+                    router.push('/login')
+                  } else {
+                    alert('Не валідний email або пароль');
+                  }
                 }}
                 className="grid gap-6">
                 <div className="grid gap-2">
@@ -73,23 +108,49 @@ export function LoginForm({
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="password">Пароль</Label>
-                    <Link
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Забули свій пароль?
-                    </Link>
                   </div>
-                  <Input id="password" type="password" required />
+                  <Input id="password" type="password" onChange={(event) => {
+                    setPassword(event.target.value)
+                    validatePassword()
+                  }} required />
                 </div>
-                <Button type="submit" className="w-full">
-                  Логін
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="confirm_password">Повторить пароль</Label>
+                  </div>
+                  <Input id="confirm_password" type="password" required
+                    onChange={(event) => {
+                      setConfirmPassword(event.target.value)
+                      validatePassword()
+                    }}
+                    onBlur={() => validatePassword()}
+                  />
+                  {passwordError && <p className="text-red-600">{passwordError}</p>}
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="name">Ім&apos;я</Label>
+                  <Input
+                    id="name"
+                    required
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="phoneNumber">Номер телефону</Label>
+                  <Input
+                    id="phoneNumber"
+                    type="phone"
+                    placeholder="+380 00 000 00 00"
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full" >
+                  Реєстрація
                 </Button>
               </form>
               <div className="text-center text-sm">
-                Не маєте облікового запису?{" "}
-                <Link href="/registration" className="underline underline-offset-4">
-                  Зареєструватися
+                Маєте обліковий запис?{" "}
+                <Link href="/login" className="underline underline-offset-4">
+                  Увійти
                 </Link>
               </div>
             </div>

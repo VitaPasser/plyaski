@@ -1,5 +1,5 @@
 'use client'
-import Button from '@/components/Button/Button';
+import ButtonLink from '@/components/Button/ButtonLink';
 import CardEvent, { EventMiniature } from '@/components/Card/CardEvent';
 import Footer from '@/components/Footer/Footer';
 import Frame from '@/components/Frame/Frame';
@@ -17,20 +17,22 @@ export interface fetchUser {
   createAt: Date;
 }
 
+export interface fetchPromotion {
+  id: string;
+  name: string;
+  description: string;
+  power: number;
+  price: number;
+  currency: {
+    id: number;
+    quotation: string;
+  };
+}
+
 export interface fetchPromotionEvent {
   promotionId: string;
   eventActionId: string;
-  promotion: {
-    id: string;
-    name: string;
-    description: string;
-    power: number;
-    price: number;
-    currency: {
-      id: number;
-      quotation: string;
-    };
-  }
+  promotion: fetchPromotion;
 }
 export interface fetchList {
   id: string;
@@ -131,7 +133,7 @@ export default function Home() {
       </Welcome>
       <Frame className='pt-2 flex-col gap-12'>
         <main className='flex flex-col gap-2'>
-          <Button className='place-self-end w-fit rounded-r-full'>Додати свою подію</Button>
+          <ButtonLink href='/info/create-event' className='place-self-end w-fit rounded-r-full'>Додати свою подію</ButtonLink>
           <section className='flex flex-row flex-wrap gap-2'>
             <Suspense fallback={<div>Loading...</div>}>
               {
