@@ -28,7 +28,7 @@ const NavBar = ({ className, classNameNavElements }: {
             <nav className={"hidden md:flex border-[1px] rounded-full divide-x-[1px]" + " " + className_ }>
                 <NavElement className={classNameNavElements} url='/info/near-clubs/'>Найближчі клуби</NavElement>
                 <NavElement className={classNameNavElements} url='/info/near-events/'>Найближчі заклади</NavElement>
-                <NavElement className={classNameNavElements} url='/info/forum/'>Суспільство</NavElement>
+                {/* <NavElement className={classNameNavElements} url='/info/forum/'>Суспільство</NavElement> */}
                 <NavElement className={classNameNavElements} url='/info/about/'>О нас</NavElement>
             </nav>
         </>

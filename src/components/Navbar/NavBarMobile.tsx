@@ -17,7 +17,7 @@ const NavBarMobile = (
                     <div className='flex flex-col justify-center items-center content-center place-content-center h-full w-full'>
                         <NavElement className={`rounded-full border-b-[1px] ${classNameNavElements ?? 'hover:bg-white/90'}`} url='/info/near-clubs/'>Найближчі клуби</NavElement>
                         <NavElement className={`rounded-full border-b-[1px] mt-4 ${classNameNavElements ?? 'hover:bg-white/90'}`} url='/info/near-events/'>Найближчі заклади</NavElement>
-                        <NavElement className={`rounded-full border-b-[1px] mt-4 ${classNameNavElements ?? 'hover:bg-white/90'}`} url='/info/forum/'>Суспільство</NavElement>
+                        {/* <NavElement className={`rounded-full border-b-[1px] mt-4 ${classNameNavElements ?? 'hover:bg-white/90'}`} url='/info/forum/'>Суспільство</NavElement> */}
                         <NavElement className={`rounded-full border-b-[1px] mt-4 ${classNameNavElements ?? 'hover:bg-white/90'}`} url='/info/about/'>О нас</NavElement>
                         <ButtonOpenNavBar
                             className="rounded-full border-0 border-b-[1px] mt-4 px-2"

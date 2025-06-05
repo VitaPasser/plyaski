@@ -4,10 +4,10 @@ import Link from 'next/link';
 import Map from '@/components/Card/Map/Map';
 
 export interface EventMiniature {
-    id: number
+    id: string
     header: string
     address: string
-    tags: [string]
+    tags: string[]
     description: string
     phone?: string
     image: {
@@ -45,7 +45,7 @@ const CardEvent = ({ id, header, address, tags, description, phone, image, map }
                         <p className='text-slate-600'>{address}</p>
                         <section className='flex flex-row gap-4 items-center'>
                             {phoneComponent}
-                            <p className='px-2 text-slate-600'>{tags.map((val, key) => <span key={key} className='border-slate-300 rounded-full border-[1px] px-2 py-1'>{val}</span>)}</p>
+                            <p className='flex flex-wrap gap-2 px-2 text-slate-600'>{tags.map((val, key) => <span key={key} className='border-slate-300 rounded-full border-[1px] px-2 py-1'>{val}</span>)}</p>
                         </section>
                     </section>
                     <p className='px-2 text-slate-600 line-clamp-3'>{description}</p>
